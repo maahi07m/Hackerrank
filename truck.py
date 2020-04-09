@@ -32,22 +32,20 @@ class Truck:
         self.load = 0
     def start_engine(self):
         self.engine = 1
-        
     def load_cargo(self,load):
         if self.engine == 1:
             print('Cannot load cargo during motion')
         else:
             if self.load+load <= max_cargo_weight:
-                print(f'Cannot load cargo more than max limit: {max_cargo_weight}')
+                self.load += load
             else:
-                self.load+=load
-    
+                print(f'Cannot load cargo more than max limit: {max_cargo_weight}')
     def unload_cargo(self,load):
-        
         if self.engine == 1:
             print('Cannot unload cargo during motion')
         else:
             self.load -= load
+        
     
     
 
